@@ -1,0 +1,22 @@
+{
+  "name": "udemynodejsfr",
+  "version": "1.0.0",
+  "description": "cours udemy en francais",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samueltomen/UdemyNodeJSFr.git"
+  },
+  "author": "dytsaw",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samueltomen/UdemyNodeJSFr/issues"
+  },
+  "homepage": "https://github.com/samueltomen/UdemyNodeJSFr#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
