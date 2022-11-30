@@ -1,4 +1,5 @@
 h1{
+    font-size: 3em;
     color: lightsalmon;
 }
 h2{
@@ -7,4 +8,5 @@ h2{
 
 p{
     color: lightblue;
+    font-size: 2em;
 }

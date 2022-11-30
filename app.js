@@ -21,13 +21,13 @@ app.get("/movies", (req, res) => {
 // Attention à l'ordre des Routes
 // La method send permet d'envoyer ce qui est contenue à l'interieur des () sur la page web designé
 app.get("/movies/add", (req, res) => {
-  res.render('add-movies');
+  res.render("add-movies");
 });
 
 //Permet de recuperer un id et le lier à une page
 app.get("/movies/:id", (req, res) => {
   const id = req.params.id;
-  res.send('movies-details');
+  res.render("movies-details", { movieId: id});
 });
 
 app.get("/", (req, res) => {
