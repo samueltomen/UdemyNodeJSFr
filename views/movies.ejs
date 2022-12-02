@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Express Movies</title>
-        <link rel="stylesheet" href="../public/style.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express Movies</title>
+    <link rel="stylesheet" href="../public/style.css">
+</head>
 
-    <body>
-        <%- include ('./partials/header'); %>
+<body>
+    <%- include ('./partials/header'); %>
         <h1>Le site web n°1 en streaming</h1>
         <h2>Liste des films</h2>
         <div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates tempora labore dicta modi, cupiditate ducimus quisquam non cum! Repellat, rerum?</p>
+            <p><a href="/movies/add">Details</a> ipsum dolor sit amet consectetur adipisicing elit. Voluptates tempora
+                labore dicta modi, cupiditate ducimus quisquam non cum! Repellat, rerum?</p>
+            <!-- <%= %> pas de tiret quand il n'y a pas la propriété include -->
+
+            <h2>
+                <%= title %>
+            </h2>
+            <div>
+                <% for (movie of movies){ %>
+                    <div>
+                        <%= movie.title %><%= movie.year %>
+                    </div>
+                    <% } %>
+            </div>
         </div>
         <footer>
-        <%- include ('./partials/footer'); %>
-    </footer>
-    </body>
+            <%- include ('./partials/footer'); %>
+        </footer>
+</body>
 
 </html>

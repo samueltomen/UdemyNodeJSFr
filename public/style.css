@@ -10,3 +10,7 @@ p{
     color: lightblue;
     font-size: 2em;
 }
+
+.central{
+    min-height: 250px;
+}

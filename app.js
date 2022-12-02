@@ -9,8 +9,16 @@ app.set("view engine", "ejs");
 
 // la method res render permet d'afficher du contenu .ejs à l'écran
 app.get("/movies", (req, res) => {
-  //   res.send("Bientot des films ici même");
-  res.render("movies");
+  const title = "Film francais des 30 dernieres années ";
+  const frenchMovies = [
+    { title: `Le fabuleux destin d'amelie Poulain`, year: 2001 },
+    { title: `Le fabuleux destin d'amelie Poulain`, year: 2101 },
+    { title: `Le fabuleux destin d'amelie Poulain`, year: 2001 },
+    { title: `Le fabuleux destin d'amelie La pute`, year: 2031 },
+    { title: `Le fabuleux destin d'amelie Poulain`, year: 2020 },
+    { title: `Le fabuleux destin d'amelie Poulain`, year: 2101 },
+  ];
+  res.render("movies", { movies: frenchMovies, title: title });
 });
 
 // app.get('/movies-details', (req,res)=>{
@@ -27,7 +35,7 @@ app.get("/movies/add", (req, res) => {
 //Permet de recuperer un id et le lier à une page
 app.get("/movies/:id", (req, res) => {
   const id = req.params.id;
-  res.render("movies-details", { movieId: id});
+  res.render("movies-details", { movieId: id });
 });
 
 app.get("/", (req, res) => {
