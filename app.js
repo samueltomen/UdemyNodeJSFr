@@ -1,9 +1,10 @@
 const express = require("express");
 const app = express();
 const PORT = 3000;
-
+const bodyParser = require("body-parser");
 // Use permet de definir quel sont les midleware que nous voulons ajouter
 app.use("/public", express.static("public"));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.set("views", "./views");
 app.set("view engine", "ejs");
 
@@ -19,6 +20,10 @@ app.get("/movies", (req, res) => {
     { title: `Le fabuleux destin d'amelie Poulain`, year: 2101 },
   ];
   res.render("movies", { movies: frenchMovies, title: title });
+});
+
+app.post("/movies", (req, res) => {
+  console.log(req.body);
 });
 
 // app.get('/movies-details', (req,res)=>{
