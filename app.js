@@ -26,7 +26,7 @@ app.get("/movies", (req, res) => {
 
 const urlencoderParser = bodyParser.urlencoded({ extended: false });
 
-app.post("/movies", urlencoderParser, (req, res) => {
+app.post('/movies', urlencoderParser, (req, res) => {
   console.log('Le titre est : ',req.body.movietitle)
   console.log('L\'année est : ',req.body.movieyear);
   const newMovie = { title : req.body.movietitle, year: parseInt(req.body.movieyear)};

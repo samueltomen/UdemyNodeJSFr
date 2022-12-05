@@ -13,7 +13,7 @@
     <%- include ('./partials/header'); %>
         <h1>Le site web n°1 en streaming</h1>
         <h2>Liste des films</h2>
-        <div>
+        <div class=" french-movies">
             <p><a href="/movies/add">Details</a> ipsum dolor sit amet consectetur adipisicing elit. Voluptates tempora
                 labore dicta modi, cupiditate ducimus quisquam non cum! Repellat, rerum?</p>
             <!-- <%= %> pas de tiret quand il n'y a pas la propriété include -->
@@ -24,23 +24,56 @@
             <div>
                 <% for (movie of movies){ %>
                     <div>
-                        <%= movie.title %><%= movie.year %>
+                        <%= movie.title %>
+                            <%= movie.year %>
                     </div>
                     <% } %>
             </div>
         </div>
         <br>
-            <form action="/movies" method="post">
-                <label for="movietitle">Titre du film</label>
-                <input type="text" name="movietitle" id="movietitle">
-                <label for="movieyear">Année du film</label>
-                <input type="text" name="movieyear" id="movieyear">
-                <button type="submit">Ajouter</button>
-            </form>
+        <form action="/movies" method="post">
+            <label for="movietitle">Titre du film</label>
+            <input type="text" name="movietitle" id="movietitle">
+            <label for="movieyear">Année du film</label>
+            <input type="text" name="movieyear" id="movieyear">
+            <button type="submit">Ajouter</button>
+        </form>
 
         <footer>
             <%- include ('./partials/footer'); %>
         </footer>
+        <script>
+            const form = document.querySelector('form')
+            form.addEventListener('submit', addMovie);
+
+            function addMovie(event) {
+                event.preventDefaut();
+                if (fetch) {
+                    fetch('/movies', {
+                        method: 'POST',
+                        body: new FormData(form)
+                    })
+                        .then(checkStatut)
+                        .catch(function (error) {
+                            console.error('request failed', error);
+                        })
+                } else {
+                    //Jquery, XHR
+                }
+
+            }
+
+            function checkStatut(response) {
+                if (response.statut >= 200 && reponse.statut < 300) {
+                    let newMovieDiv = document.createElement('div')
+                    const movieTitle = document.getElementById('movietitle').value;
+                    const movieYear = document.getElementById('movieyear').value;
+                    newMovieDiv.innerHTML = `${movetitle} ${movieyear}`;
+                    document.querySelector('.french-movies').appendChild(newMovieDiv);
+                    form.reset()
+                }
+            }
+        </script>
 </body>
 
 </html>
